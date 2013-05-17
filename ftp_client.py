@@ -2,9 +2,6 @@ import socket, sys, re, os
 import threading
 import select
 
-myip = "166.111.5.242"
-myport = 13333
-
 def panic(msg):
 	print msg
 	sys.exit(1)
@@ -143,7 +140,7 @@ def showHelp():
 	put <filename>	put filename to working directory
 	get <filename>	get filename from working directory'''
 
-address = ('166.111.138.248', 21)
+address = ('192.168.245.97', 13321)
 inst_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
 inst_socket.connect(address)  
 	  
@@ -186,3 +183,4 @@ while 1:
 		print 'Unsupported instruction %s' % cmd
 		showHelp()
 
+inst_socket.close()
